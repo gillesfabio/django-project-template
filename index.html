@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>django-project-template by gillesfabio</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>django-project-template</h1>
+        <p>My personal Django project template.</p>
+        <p class="view"><a href="https://github.com/gillesfabio/django-project-template">View the Project on GitHub <small>gillesfabio/django-project-template</small></a></p>
+        <ul>
+          <li><a href="https://github.com/gillesfabio/django-project-template/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/gillesfabio/django-project-template/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/gillesfabio/django-project-template">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Prerequisites</h2>
+
+<p>Install <a href="http://www.pip-installer.org/">pip</a> and <a href="http://www.doughellmann.com/docs/virtualenvwrapper/">virtualenvwrapper</a>:</p>
+
+<pre><code>sudo easy_install pip
+pip install virtualenvwrapper
+echo "source /usr/local/bin/virtualenvwrapper.sh" &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+</code></pre>
+
+<p>Create a dedicated virtualenv for <a href="http://djangoproject.com">Django</a>:</p>
+
+<pre><code>mkvirtualenv django
+pip install django
+</code></pre>
+
+<p>You've done.</p>
+
+<h2>Installation</h2>
+
+<p>Be sure your current virtualenv is <code>django</code>:</p>
+
+<pre><code>workon django
+</code></pre>
+
+<p>Create your Django project with the <code>--template</code> argument pointing on the GitHub
+zipball of the branch you want to grab (and with <code>--extension</code> argument to parse
+Python and reStructuredText files):</p>
+
+<pre><code>django-admin.py startproject PROJECT_NAME --template=https://github.com/gillesfabio/django-project-template/zipball/BRANCH --extension=py,rst
+</code></pre>
+
+<p>Deactivate the Django virtualenv:</p>
+
+<pre><code>deactivate
+</code></pre>
+
+<p>Create a virtualenv for your Django project:</p>
+
+<pre><code>mkvirtualenv PROJECT_NAME
+</code></pre>
+
+<p>Install requirements:</p>
+
+<pre><code>pip install -r PROJECT_NAME/requirements/development.txt
+</code></pre>
+
+<p>Rename <code>PROJECT_NAME/settings/local.sample.py</code>:</p>
+
+<pre><code>mv PROJECT_NAME/PROJECT_NAME/settings
+mv local.sample.py local.py
+</code></pre>
+
+<p>Import settings for the given environment:</p>
+
+<pre><code>from PROJECT_NAME.settings.development import *
+</code></pre>
+
+<p>Override settings if you need.</p>
+
+<p>Sychronize and run the server:</p>
+
+<pre><code>python manage.py syncdb
+python manage.py runserver
+</code></pre>
+
+<p>Celebrate!</p>
+
+<h2>Requirements and version numbers</h2>
+
+<p>This Django project template does not use explicit version numbers for requirements to get the latest stable version at project creation.</p>
+
+<p>Edit requirement files (in <code>requirements</code> directory) and add version numbers to your requirements. Never ever use requirements without explicit version numbers. This can kill your project.</p>
+
+<p>Use <code>pip freeze</code> to catch version numbers in a second:</p>
+
+<pre><code>pip freeze &gt; freeze.txt
+</code></pre>
+
+<p>So don't forget to update your requirements.</p>
+
+<h2>Branches</h2>
+
+<h3>master</h3>
+
+<p>Only contains this README file.</p>
+
+<h3>simple</h3>
+
+<p>Stack:</p>
+
+<ul>
+<li><a href="http://djangoproject.com/">Django</a></li>
+<li><a href="http://www.pythonware.com/products/pil/">PIL</a></li>
+<li><a href="http://www.sqlite.org/">SQLite</a></li>
+<li><a href="http://south.aeracode.org/">South</a></li>
+<li><a href="http://sphinx.pocoo.org/">Sphinx</a></li>
+<li><a href="https://github.com/cyberdelia/django-pipeline/">django-pipeline</a></li>
+<li><a href="https://github.com/shanx/django-maintenancemode/">django-maintenancemode</a></li>
+<li><a href="https://github.com/django-debug-toolbar/django-debug-toolbar/">django-debug-toolbar</a></li>
+</ul><h3>bootstrap</h3>
+
+<p>The <code>simple</code> stack +:</p>
+
+<ul>
+<li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></li>
+<li><a href="http://jquery.com">jQuery</a></li>
+<li><a href="https://github.com/dyve/django-bootstrap-toolkit/">django-bootstrap-toolkit</a></li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/gillesfabio">gillesfabio</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>

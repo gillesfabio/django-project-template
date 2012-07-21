@@ -1,0 +1,6 @@
+PIL
+Django
+South
+Sphinx
+django-pipeline
+django-maintenancemode

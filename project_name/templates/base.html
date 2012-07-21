@@ -1,0 +1,45 @@
+{% load compressed %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block full-title %}{% block title %}{% endblock %} &ndash; PROJECT{% endblock %}</title>
+    <meta name="viewport" content="{% block meta-viewport %}width=device-width, initial-scale=1.0{% endblock %}">
+    <meta name="description"content="{% block meta-description %}{% endblock %}">
+    <meta name="author" content="{% block meta-author %}{% endblock %}">
+    <meta name="keywords" content="{% block meta-keywords %}{% endblock %}">
+    {% block meta-extra %}{% endblock %}
+    {% compressed_css 'master' %}
+    {% block css-extra %}{% endblock %}
+  </head>
+  <body>
+    <header id="header">
+      <div class="container"
+        <h1><a href="{% url 'home' %}">PROJECT</a></h1>
+      </div>
+    </header>
+    <div id="content">
+      <div class="container">
+        {% block messages %}
+          {% if messages %}
+          <div id="messages">
+            <ul>
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|safe }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        {% endblock %}
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+    <footer id="footer">
+      <div class="container">
+        <p>&copy; 2012 PROJECT</p>
+      </div>
+    </footer>
+    {% compressed_js 'master' %}
+    {% block js-extra %}{% endblock %}
+  </body>
+</html>

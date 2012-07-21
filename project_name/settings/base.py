@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     # External apps
     'pipeline',
     'south',
+    'bootstrap_toolkit',
 
     # Project apps
     #'{{ project_name }}.myapp',
@@ -179,6 +180,8 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 PIPELINE_CSS = {
     'master': {
         'source_filenames': (
+            'vendor/bootstrap/css/bootstrap.min.css',
+            'vendor/bootstrap/css/bootstrap-responsive.min.css',
             'site/css/main.css',
         ),
         'output_filename': '{{ project_name }}/css/master.css',
@@ -187,6 +190,8 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'master': {
         'source_filenames': (
+            'vendor/jquery/jquery-1.7.2.min.js',
+            'vendor/bootstrap/js/bootstrap.min.js',
             'site/js/main.js',
         ),
         'output_filename': '{{ project_name }}/js/master.js',

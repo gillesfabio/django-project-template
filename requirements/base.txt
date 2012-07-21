@@ -4,3 +4,4 @@ South
 Sphinx
 django-pipeline
 django-maintenancemode
+django-bootstrap-toolkit
